@@ -46,14 +46,19 @@ function App() {
 
   console.log(charactersData);
   return (
-    <div className="flex flex-col justify-center items-center bg-[url('fondo-1.jpg')] contrast-125 bg-contain bg-no-repeat bg-center">
-      <h1 className="text-center text-5xl font-mono font-bold m-16 text-black">
+    <div className="flex flex-col justify-center items-center">
+      <img
+        className="contrast-125 bg-cover bg-no-repeat bg-center absolute z-10 mt-32 w-full md:bg-cover"
+        src="/fondo-2.png"
+      />
+
+      <h1 className="text-center text-5xl font-mono font-extrabold m-12 text-black z-40">
         Random Character Rick & Morty
       </h1>
       {loading ? (
         <p>Loading...</p>
       ) : (
-        <div className="bg-slate-300 border border-slate-400 rounded-lg shadow-lg shadow-black">
+        <div className="bg-slate-300 border border-slate-400 rounded-lg shadow-lg shadow-black relative z-40 mt-14">
           {randomCharacter ? (
             <div key={randomCharacter.id}>
               <img
@@ -66,12 +71,14 @@ function App() {
               </h2>
             </div>
           ) : (
-            <div className="m-10 border border-black rounded-lg w-64 h-64 flex items-center justify-center bg-[url('icon.jpg')] bg-cover"></div>
+            <div className="m-10 border border-black rounded-lg w-64 h-64 flex items-center justify-center">
+              <img className="bg-cover" src="/icon.jpg" />
+            </div>
           )}
         </div>
       )}
       <button
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md my-20"
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md my-20 z-40"
         onClick={handleObtenerPersonaje}
       >
         Click me
